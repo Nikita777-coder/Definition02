@@ -1,4 +1,4 @@
-package ru.screbber.DefinitionApplication.security;
+package ru.Nikita777coder.DefinitionApplication.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -8,7 +8,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-import ru.screbber.DefinitionApplication.services.PersonDetailsService;
+import ru.Nikita777coder.DefinitionApplication.services.PersonDetailsService;
 
 import java.util.Collections;
 

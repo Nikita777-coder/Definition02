@@ -1,29 +1,23 @@
-package ru.screbber.DefinitionApplication.controllers;
+package ru.Nikita777coder.DefinitionApplication.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import lombok.RequiredArgsConstructor;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.screbber.DefinitionApplication.dto.DefinitionDTO;
-import ru.screbber.DefinitionApplication.models.Definition;
+import org.springframework.web.bind.annotation.RestController;
+import ru.Nikita777coder.DefinitionApplication.entity.Definition;
+import ru.Nikita777coder.DefinitionApplication.repositories.DefinitionRepository;
 
 import java.util.List;
 
-@Controller
+@RestController
+@RequiredArgsConstructor
 public class SearchController {
-
-    private final DefinitionDTO definitionDAO;
-
-    @Autowired
-    public SearchController(DefinitionDTO definitionDAO) {
-        this.definitionDAO = definitionDAO;
-    }
-
+    private final DefinitionRepository definitionRepository;
 
     @GetMapping("/search")
     public String handleSearchRequest(@RequestParam("search") String searchQuery, Model model) {
-        List<Definition> matchingDefinitions = definitionDAO.getAllDefinitions()
+        List<Definition> matchingDefinitions = definitionRepository.findAll()
                 .stream()
                 .filter(definition -> definition.getName().trim().toLowerCase().startsWith(searchQuery.toLowerCase()))
                 .toList();
@@ -31,6 +25,4 @@ public class SearchController {
 
         return "home";
     }
-
-
 }

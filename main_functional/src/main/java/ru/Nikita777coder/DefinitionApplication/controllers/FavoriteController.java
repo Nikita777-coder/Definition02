@@ -1,31 +1,25 @@
-package ru.screbber.DefinitionApplication.controllers;
+package ru.Nikita777coder.DefinitionApplication.controllers;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import ru.screbber.DefinitionApplication.dto.DefinitionDTO;
-import ru.screbber.DefinitionApplication.dto.PersonDTO;
-import ru.screbber.DefinitionApplication.models.Definition;
-import ru.screbber.DefinitionApplication.models.Person;
-import ru.screbber.DefinitionApplication.security.PersonDetails;
+import org.springframework.web.bind.annotation.RestController;
+import ru.Nikita777coder.DefinitionApplication.entity.Definition;
+import ru.Nikita777coder.DefinitionApplication.entity.Person;
+import ru.Nikita777coder.DefinitionApplication.repositories.PeopleRepository;
+import ru.Nikita777coder.DefinitionApplication.security.PersonDetails;
 
 import java.util.List;
 
-@Controller
+@RestController
+@RequiredArgsConstructor
 public class FavoriteController {
-
-    private final PersonDTO personDTO;
-
-    @Autowired
-    public FavoriteController(DefinitionDTO definitionDAO, PersonDTO personDTO) {
-        this.personDTO = personDTO;
-    }
+    private final PeopleRepository peopleRepository;
 
     @GetMapping("/favorites")
     public String handleCategoriesRequest(Model model) {
@@ -50,7 +44,7 @@ public class FavoriteController {
             if (!definitions.contains(definition)) {
                 definitions.add(definition);
                 person.setDefinitions(definitions);
-                personDTO.save(person);
+                peopleRepository.save(person);
             }
         }
 
@@ -64,7 +58,7 @@ public class FavoriteController {
         PersonDetails personDetails = (PersonDetails) authentication.getPrincipal();
         Person person = personDetails.getPerson();
         person.getDefinitions().remove(definition);
-        personDTO.save(person);
+        peopleRepository.save(person);
 
         return "redirect:/favorites";
     }

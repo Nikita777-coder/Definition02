@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.client.RestTemplate;
+import ru.Nikita777coder.RestService;
 
 @Configuration
 public class AppElementsConfigs {
@@ -14,7 +15,7 @@ public class AppElementsConfigs {
     }
 
     @Bean
-    public RestTemplate restTemplate() {
-        return new RestTemplate();
+    public RestService restTemplate() {
+        return new RestService();
     }
 }

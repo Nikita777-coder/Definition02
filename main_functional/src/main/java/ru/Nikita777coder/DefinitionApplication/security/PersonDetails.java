@@ -1,8 +1,8 @@
-package ru.screbber.DefinitionApplication.security;
+package ru.Nikita777coder.DefinitionApplication.security;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import ru.screbber.DefinitionApplication.models.Person;
+import ru.Nikita777coder.DefinitionApplication.entity.Person;
 
 import java.util.Collection;
 

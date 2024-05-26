@@ -1,6 +1,7 @@
-package ru.screbber.DefinitionApplication.models;
+package ru.Nikita777coder.DefinitionApplication.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+
 import java.util.List;
 
 @Entity
