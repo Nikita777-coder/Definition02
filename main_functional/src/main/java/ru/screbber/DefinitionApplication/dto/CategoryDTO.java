@@ -1,4 +1,4 @@
-package ru.screbber.DefinitionApplication.dao;
+package ru.screbber.DefinitionApplication.dto;
 
 import org.springframework.stereotype.Repository;
 import ru.screbber.DefinitionApplication.models.CategoryDefinition;
@@ -10,7 +10,7 @@ import javax.transaction.Transactional;
 
 @Repository
 @Transactional
-public class CategoryDAO {
+public class CategoryDTO {
 
     @PersistenceContext
     private EntityManager entityManager;

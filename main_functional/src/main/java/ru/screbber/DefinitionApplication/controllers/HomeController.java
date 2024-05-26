@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import ru.screbber.DefinitionApplication.dao.DefinitionDAO;
+import ru.screbber.DefinitionApplication.dto.DefinitionDTO;
 import ru.screbber.DefinitionApplication.models.Definition;
 
 import java.util.List;
@@ -12,10 +12,10 @@ import java.util.List;
 @Controller
 public class HomeController {
 
-    private final DefinitionDAO definitionDAO;
+    private final DefinitionDTO definitionDAO;
 
     @Autowired
-    public HomeController(DefinitionDAO definitionDAO) {
+    public HomeController(DefinitionDTO definitionDAO) {
         this.definitionDAO = definitionDAO;
     }
 

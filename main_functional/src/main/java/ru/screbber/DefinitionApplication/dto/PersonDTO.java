@@ -1,4 +1,4 @@
-package ru.screbber.DefinitionApplication.dao;
+package ru.screbber.DefinitionApplication.dto;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -8,7 +8,7 @@ import ru.screbber.DefinitionApplication.models.Person;
 
 @Repository
 @Transactional
-public class PersonDAO {
+public class PersonDTO {
     @PersistenceContext
     private EntityManager entityManager;
 

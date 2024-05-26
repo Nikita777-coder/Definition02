@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import ru.screbber.DefinitionApplication.dao.DefinitionDAO;
+import ru.screbber.DefinitionApplication.dto.DefinitionDTO;
 import ru.screbber.DefinitionApplication.models.Definition;
 
 import java.util.List;
@@ -13,10 +13,10 @@ import java.util.List;
 @Controller
 public class SearchController {
 
-    private final DefinitionDAO definitionDAO;
+    private final DefinitionDTO definitionDAO;
 
     @Autowired
-    public SearchController(DefinitionDAO definitionDAO) {
+    public SearchController(DefinitionDTO definitionDAO) {
         this.definitionDAO = definitionDAO;
     }
 

@@ -1,4 +1,4 @@
-package ru.screbber.DefinitionApplication.config;
+package ru.screbber.DefinitionApplication.configurations;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;

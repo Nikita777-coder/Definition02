@@ -9,8 +9,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import ru.screbber.DefinitionApplication.dao.DefinitionDAO;
-import ru.screbber.DefinitionApplication.dao.PersonDAO;
+import ru.screbber.DefinitionApplication.dto.DefinitionDTO;
+import ru.screbber.DefinitionApplication.dto.PersonDTO;
 import ru.screbber.DefinitionApplication.models.Definition;
 import ru.screbber.DefinitionApplication.models.Person;
 import ru.screbber.DefinitionApplication.security.PersonDetails;
@@ -20,11 +20,11 @@ import java.util.List;
 @Controller
 public class FavoriteController {
 
-    private final PersonDAO personDAO;
+    private final PersonDTO personDTO;
 
     @Autowired
-    public FavoriteController(DefinitionDAO definitionDAO, PersonDAO personDAO) {
-        this.personDAO = personDAO;
+    public FavoriteController(DefinitionDTO definitionDAO, PersonDTO personDTO) {
+        this.personDTO = personDTO;
     }
 
     @GetMapping("/favorites")
@@ -50,7 +50,7 @@ public class FavoriteController {
             if (!definitions.contains(definition)) {
                 definitions.add(definition);
                 person.setDefinitions(definitions);
-                personDAO.save(person);
+                personDTO.save(person);
             }
         }
 
@@ -64,7 +64,7 @@ public class FavoriteController {
         PersonDetails personDetails = (PersonDetails) authentication.getPrincipal();
         Person person = personDetails.getPerson();
         person.getDefinitions().remove(definition);
-        personDAO.save(person);
+        personDTO.save(person);
 
         return "redirect:/favorites";
     }

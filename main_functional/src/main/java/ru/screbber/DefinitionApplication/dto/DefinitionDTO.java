@@ -1,4 +1,4 @@
-package ru.screbber.DefinitionApplication.dao;
+package ru.screbber.DefinitionApplication.dto;
 
 import org.springframework.stereotype.Repository;
 import ru.screbber.DefinitionApplication.models.Definition;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Repository
 @Transactional
-public class DefinitionDAO {
+public class DefinitionDTO {
 
     @PersistenceContext
     private EntityManager entityManager;
