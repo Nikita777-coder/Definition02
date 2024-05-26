@@ -1,54 +1,31 @@
 package ru.Nikita777coder.DefinitionApplication.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.OneToMany;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.data.cassandra.core.mapping.Column;
+import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.Table;
 
 import java.util.List;
 
-@Entity
-@Table(name = "category_definition")
+@Table
+@Getter
+@Setter
+@NoArgsConstructor
 public class CategoryDefinition {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @PrimaryKey
+    @Column
     private int id;
 
-    @Column(name = "name")
+    @Column
     private String name;
 
-    @OneToMany(mappedBy = "category")
-    private List<Definition> definitions;
-
-    public CategoryDefinition() {
-    }
-
-    public CategoryDefinition(String name, List<Definition> definitions) {
-        this.name = name;
-        this.definitions = definitions;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Definition> getDefinitions() {
-        return definitions;
-    }
-
-    public void setDefinitions(List<Definition> definitions) {
-        this.definitions = definitions;
-    }
+    @Column
+    private List<Integer> definitions;
 
 }

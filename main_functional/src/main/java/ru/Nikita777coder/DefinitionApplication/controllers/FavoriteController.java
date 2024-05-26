@@ -26,7 +26,7 @@ public class FavoriteController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         PersonDetails personDetails = (PersonDetails) authentication.getPrincipal();
         Person person = personDetails.getPerson();
-        List<Definition> definitionList = person.getDefinitions();
+        List<Integer> definitionList = person.getDefinitions();
         model.addAttribute("definitions", definitionList);
 
         return "favorite";
@@ -40,9 +40,9 @@ public class FavoriteController {
         Person person = personDetails.getPerson();
 
         if (definition != null) {
-            List<Definition> definitions = person.getDefinitions();
-            if (!definitions.contains(definition)) {
-                definitions.add(definition);
+            List<Integer> definitions = person.getDefinitions();
+            if (!definitions.contains(definition.getId())) {
+                definitions.add(definition.getId());
                 person.setDefinitions(definitions);
                 peopleRepository.save(person);
             }
@@ -57,7 +57,7 @@ public class FavoriteController {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         PersonDetails personDetails = (PersonDetails) authentication.getPrincipal();
         Person person = personDetails.getPerson();
-        person.getDefinitions().remove(definition);
+        person.getDefinitions().remove(definition.getId());
         peopleRepository.save(person);
 
         return "redirect:/favorites";
