@@ -8,7 +8,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-import ru.screbber.DefinitionApplication.services.PersonDetailsService;
+import ru.screbber.DefinitionApplication.controllers.PersonDetailsService;
 
 import java.util.Collections;
 

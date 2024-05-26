@@ -1,4 +1,4 @@
-package ru.screbber.DefinitionApplication.controllers;
+package ru.screbber.DefinitionApplication.views;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

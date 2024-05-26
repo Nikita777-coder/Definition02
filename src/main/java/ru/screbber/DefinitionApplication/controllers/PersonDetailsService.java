@@ -1,4 +1,4 @@
-package ru.screbber.DefinitionApplication.services;
+package ru.screbber.DefinitionApplication.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
