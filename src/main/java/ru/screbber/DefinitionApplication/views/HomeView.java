@@ -10,12 +10,12 @@ import ru.screbber.DefinitionApplication.models.Definition;
 import java.util.List;
 
 @Controller
-public class HomeController {
+public class HomeView {
 
     private final DefinitionDAO definitionDAO;
 
     @Autowired
-    public HomeController(DefinitionDAO definitionDAO) {
+    public HomeView(DefinitionDAO definitionDAO) {
         this.definitionDAO = definitionDAO;
     }
 

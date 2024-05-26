@@ -12,12 +12,12 @@ import ru.screbber.DefinitionApplication.security.PersonDetails;
 import java.util.Optional;
 
 @Service
-public class PersonDetailsService implements UserDetailsService {
+public class PersonDetailsController implements UserDetailsService {
 
     private final PeopleRepository peopleRepository;
 
     @Autowired
-    public PersonDetailsService(PeopleRepository peopleRepository) {
+    public PersonDetailsController(PeopleRepository peopleRepository) {
         this.peopleRepository = peopleRepository;
     }
 

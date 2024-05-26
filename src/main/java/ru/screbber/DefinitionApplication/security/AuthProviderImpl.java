@@ -8,25 +8,25 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
-import ru.screbber.DefinitionApplication.controllers.PersonDetailsService;
+import ru.screbber.DefinitionApplication.controllers.PersonDetailsController;
 
 import java.util.Collections;
 
 @Component
 public class AuthProviderImpl implements AuthenticationProvider {
 
-    private final PersonDetailsService personDetailsService;
+    private final PersonDetailsController personDetailsController;
 
     @Autowired
-    public AuthProviderImpl(PersonDetailsService personDetailsService) {
-        this.personDetailsService = personDetailsService;
+    public AuthProviderImpl(PersonDetailsController personDetailsController) {
+        this.personDetailsController = personDetailsController;
     }
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         String username = authentication.getName();
 
-        UserDetails personDetails = personDetailsService.loadUserByUsername(username);
+        UserDetails personDetails = personDetailsController.loadUserByUsername(username);
 
         String password = authentication.getCredentials().toString();
 

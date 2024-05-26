@@ -18,12 +18,12 @@ import ru.screbber.DefinitionApplication.security.PersonDetails;
 import java.util.List;
 
 @Controller
-public class FavoriteController {
+public class FavoriteView {
 
     private final PersonDAO personDAO;
 
     @Autowired
-    public FavoriteController(DefinitionDAO definitionDAO, PersonDAO personDAO) {
+    public FavoriteView(DefinitionDAO definitionDAO, PersonDAO personDAO) {
         this.personDAO = personDAO;
     }
 

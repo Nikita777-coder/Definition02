@@ -11,12 +11,12 @@ import ru.screbber.DefinitionApplication.models.Definition;
 import java.util.List;
 
 @Controller
-public class SearchController {
+public class SearchView {
 
     private final DefinitionDAO definitionDAO;
 
     @Autowired
-    public SearchController(DefinitionDAO definitionDAO) {
+    public SearchView(DefinitionDAO definitionDAO) {
         this.definitionDAO = definitionDAO;
     }
 
